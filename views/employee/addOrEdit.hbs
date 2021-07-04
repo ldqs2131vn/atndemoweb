@@ -17,6 +17,13 @@
         </div>
 </div>
 <div class="form-group">
+  <label for="usr">Gender</label>
+  <input type="text" class="form-control" name="gender" value="{{employee.gender}}" placeholder="Gender">
+<div class="text-danger">
+            {{employee.genderError}}
+        </div>
+</div>
+<div class="form-group">
   <label for="usr">City</label>
   <input type="text" class="form-control" name="employeeCity" value="{{employee.employeeCity}}" placeholder="City">
 <div class="text-danger">

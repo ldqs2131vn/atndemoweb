@@ -14,6 +14,11 @@ var employeeSchema = new mongoose.Schema({
         required: 'This field is required'
 
     },
+    gender: {
+        type: String,
+        required: 'This field is required'
+
+    },
     mobile: {
         type: String,
         required: 'This field is required'

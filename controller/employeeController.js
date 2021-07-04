@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     res.render("employee/addOrEdit", {
-        viewTitle: "Insert product"
+        viewTitle: "Insert employee"
     })
 })
 
@@ -23,8 +23,8 @@ function insertRecord(req, res) {
     employee.id = req.body.id;
     employee.employeeName = req.body.employeeName;
     employee.employeeCity = req.body.employeeCity;
+    employee.gender = req.body.gender;
     employee.mobile = req.body.mobile;
-
     employee.save((err, doc) => {
         if (!err) {
             res.redirect('employee/list');
@@ -33,7 +33,7 @@ function insertRecord(req, res) {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
                 res.render("employee/addOrEdit", {
-                    viewTitle: "Insert product",
+                    viewTitle: "Insert emplyee",
                     employee: req.body
                 })
             }
@@ -51,7 +51,7 @@ function updateRecord(req, res) {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
                 res.render("employee/addOrEdit", {
-                    viewTitle: 'Update product',
+                    viewTitle: 'Update employee',
                     employee: req.body
                 });
             }
@@ -104,6 +104,9 @@ function handleValidationError(err, body) {
                 break;
                 case 'employeeCity':
                     body['employeeCityError'] = err.errors[field].message;
+                    break;
+                    case 'gender':
+                    body['genderError'] = err.errors[field].message;
                     break;
                     case 'mobile':
                 body['mobileError'] = err.errors[field].message;
