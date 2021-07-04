@@ -5,23 +5,19 @@ var employeeSchema = new mongoose.Schema({
         type: String,
         required: 'This field is required'
     },
-    employeeName: {
+    name: {
         type: String,
         required: 'This field is required'
     },
-    employeeCity: {
+    city: {
         type: String,
-        required: 'This field is required'
-
     },
     gender: {
         type: String,
-        required: 'This field is required'
 
     },
-    mobile: {
+    phone: {
         type: String,
-        required: 'This field is required'
 
     }
 })

@@ -21,10 +21,11 @@ router.post("/", (req, res) => {
 function insertRecord(req, res) {
     var employee = new Employee();
     employee.id = req.body.id;
-    employee.employeeName = req.body.employeeName;
-    employee.employeeCity = req.body.employeeCity;
+    employee.name = req.body.name;
     employee.gender = req.body.gender;
-    employee.mobile = req.body.mobile;
+    employee.phone = req.body.phone;
+    employee.city = req.body.city;
+
     employee.save((err, doc) => {
         if (!err) {
             res.redirect('employee/list');
@@ -33,7 +34,7 @@ function insertRecord(req, res) {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
                 res.render("employee/addOrEdit", {
-                    viewTitle: "Insert emplyee",
+                    viewTitle: "Insert employee",
                     employee: req.body
                 })
             }
@@ -77,6 +78,8 @@ router.get('/:id', (req, res) => {
     Employee.findById(req.params.id, (err, doc) => {
         if (!err) {
             res.render("employee/addOrEdit", {
+                viewTitle: "Update employee",
+                employee: doc
             })
         }
     })
@@ -99,19 +102,9 @@ function handleValidationError(err, body) {
             case 'id':
                 body['idError'] = err.errors[field].message;
                 break;
-            case 'employeeName':
-                body['employeeNameError'] = err.errors[field].message;
+            case 'name':
+                body['nameError'] = err.errors[field].message;
                 break;
-                case 'employeeCity':
-                    body['employeeCityError'] = err.errors[field].message;
-                    break;
-                    case 'gender':
-                    body['genderError'] = err.errors[field].message;
-                    break;
-                    case 'mobile':
-                body['mobileError'] = err.errors[field].message;
-                break;
-
             default:
                 break;
         }

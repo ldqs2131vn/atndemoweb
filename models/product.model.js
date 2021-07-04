@@ -11,12 +11,10 @@ var productSchema = new mongoose.Schema({
     },
     productCategory: {
         type: String,
-        required: 'This field is required'
 
     },
     price: {
         type: String,
-        required: 'This field is required'
 
     }
 })

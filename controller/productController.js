@@ -104,13 +104,6 @@ function handleValidationError(err, body) {
             case 'productName':
                 body['productNameError'] = err.errors[field].message;
                 break;
-                case 'productCategory':
-                    body['productCategoryError'] = err.errors[field].message;
-                    break;
-                    case 'price':
-                body['priceError'] = err.errors[field].message;
-                break;
-
             default:
                 break;
         }
