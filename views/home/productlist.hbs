@@ -1,0 +1,21 @@
+<title>Product list</title>
+<div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Toys Name</th>
+            <th>Toys Type</th>
+            <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each list}}
+        <tr>
+          <td>{{this.productName}}</td>
+            <td>{{this.productCategory}}</td>
+            <td>{{this.amount}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,43 @@
+<title>Product list</title>
+<h3>
+    <a href="/product" class="btn btn-success">
+        <i class="fa fa-plus"></i>&nbsp;Create New
+    </a>
+    Toys list
+</h3>
+<hr>
+<div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Toys ID</th>
+          <th>Toys Name</th>
+            <th>Toys Type</th>
+            <th>Amount</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each list}}
+        <tr>
+          <td>{{this.id}}</td>
+          <td>{{this.productName}}</td>
+            <td>{{this.productCategory}}</td>
+            <td>{{this.amount}}</td>
+            <td>
+                <a href="/product/{{this._id}}">
+<i class="fas fa-edit"></i>
+                </a>
+                </td>
+                <td>
+                <a href="/product/delete/{{this._id}}"
+                    onclick="return confirm('Are you sure to delete this record?');">
+<i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>

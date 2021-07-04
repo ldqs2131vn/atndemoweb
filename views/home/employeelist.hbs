@@ -1,0 +1,21 @@
+<title>Employee list</title>
+<div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+            <th>City</th>
+            <th>Mobile</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each list}}
+        <tr>
+          <td>{{this.employeeName}}</td>
+            <td>{{this.employeeCity}}</td>
+            <td>{{this.mobile}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
